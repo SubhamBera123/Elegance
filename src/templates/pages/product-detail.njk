@@ -1,0 +1,58 @@
+{% extends "layout.njk" %}
+{% block content %}
+{% if not product %}
+<div class="container px-4 py-16 text-center">
+  <h1 class="text-2xl font-bold mb-4">Product not found</h1>
+  <a class="btn" href="/products">Browse All Products</a>
+  </div>
+{% else %}
+<div class="container px-4 py-8">
+  <a class="text-sm text-muted-foreground hover:text-primary" href="/products">← Back to Products</a>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 mt-6">
+    <div>
+      <img src="{{ product.images[0] }}" alt="{{ product.name }}" class="w-full h-96 object-cover rounded-lg" />
+    </div>
+    <div>
+      <h1 class="text-3xl font-bold mb-4">{{ product.name }}</h1>
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="text-3xl font-bold">${{ product.price }}</span>
+        {% if product.originalPrice %}
+          <span class="text-xl text-muted-foreground line-through">${{ product.originalPrice }}</span>
+        {% endif %}
+      </div>
+      <p class="text-muted-foreground mb-6">{{ product.description }}</p>
+      <div class="mb-6">
+        <label class="block text-sm font-medium mb-2">Size</label>
+        <select id="size-select" class="border rounded px-3 py-2 w-full">
+          <option value="">Select a size</option>
+          {% for s in product.sizes %}
+            <option value="{{ s }}">{{ s }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-6">
+        <label class="block text-sm font-medium mb-2">Color</label>
+        <select id="color-select" class="border rounded px-3 py-2 w-full">
+          <option value="">Select a color</option>
+          {% for c in product.colors %}
+            <option value="{{ c }}">{{ c }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-6">
+        <label class="block text-sm font-medium mb-2">Quantity</label>
+        <div class="flex items-center space-x-3">
+          <button id="qty-minus" class="border rounded px-3 py-1">-</button>
+          <span id="qty-value" class="w-8 text-center">1</span>
+          <button id="qty-plus" class="border rounded px-3 py-1">+</button>
+        </div>
+      </div>
+      <div class="flex space-x-4 mb-8">
+        <button class="btn btn-primary" data-action="add-to-cart">{{ product.inStock and 'Add to Cart' or 'Out of Stock' }}</button>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
+
+

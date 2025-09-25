@@ -1,0 +1,19 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('/src/assets/hero-banner.jpg')">
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+  <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Discover Your Perfect <span class="block gradient-accent bg-clip-text text-transparent">Dress</span></h1>
+    <p class="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">From elegant evening wear to casual day dresses, find the perfect outfit for every occasion in our curated collection.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a class="btn btn-primary text-lg px-8 py-6" href="/products">Shop Now →</a>
+      <a class="btn btn-outline text-lg px-8 py-6" href="/products?filter=new">New Arrivals</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

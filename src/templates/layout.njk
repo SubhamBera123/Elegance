@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vogue-weave</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    {% include "partials/header.njk" %}
+    <main class="flex-1">
+      {% block content %}{% endblock %}
+    </main>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>
+
+

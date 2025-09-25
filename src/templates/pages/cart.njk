@@ -1,0 +1,13 @@
+{% extends "layout.njk" %}
+{% block content %}
+<div class="container px-4 py-16">
+  <h1 class="text-3xl font-bold mb-6">Your Cart</h1>
+  <div id="cart-items" class="divide-y"></div>
+  <div class="flex justify-between items-center mt-6">
+    <button id="cart-clear" class="border rounded px-4 py-2">Clear Cart</button>
+    <div class="text-xl">Total: <span id="cart-total">$0.00</span></div>
+  </div>
+</div>
+{% endblock %}
+
+
